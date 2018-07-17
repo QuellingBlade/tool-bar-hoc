@@ -1,17 +1,11 @@
-<style>
-td{
-  text-align: left;
-}
-</style>
-
 <template>
 <div>
-  <tool-bar layout='action, search, confirm' :action-options='actionOptions'  :filter-options='filterOptions' v-model='filters'>
+  <tool-bar layout='action, select, search, confirm' :action-options='actionOptions' :filter-options='filterOptions' v-model='filters'>
   </tool-bar>
-  <data-tables-server :data="data" :filters="filters">
+  <data-tables :data="data" :filters="filters">
     <el-table-column v-for="title in titles" :prop="title.prop" :label="title.label" :key="title.prop">
     </el-table-column>
-  </data-tables-server>
+  </data-tables>
 </div>
 </template>
 
@@ -50,16 +44,29 @@ export default {
         value: '',
         type: 'search',
         prop: 'flow_no',
+      },
+      {
+        type: 'select',
+        prop: 'flow_no',
+        value: ''
       }],
       actionOptions: {
         colProps: {
-          span: 17
+          span: 4,
         },
         items: [
           {
-            name: 'Do Something',
+            name: 'Warning',
             handler: () => {
-              console.log('Done')
+              this.$message.error('Warning')
+            },
+            colProps: {
+            }
+          },
+          {
+            name: 'Success',
+            handler: () => {
+              this.$message.success('Success')
             }
           },
         ]
@@ -67,12 +74,28 @@ export default {
       filterOptions: {
         searchOptions: {
           colProps: {
-            span: 4
+            span: 4,
+            offset: 8
           },
           props: {
             placeholder: 'Search',
           }
-        }
+        },
+        selectOptions: {
+          props: {
+            placeholder: 'Select'
+          },
+          items: [
+            {
+              label: 'opt1',
+              value: 'FW201601010001'
+            },
+            {
+              label: 'opt2',
+              value: 'FW201601010002'
+            },
+          ]
+        },
       },
     }
   },
