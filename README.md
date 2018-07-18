@@ -12,7 +12,7 @@ npm install tool-bar-hoc
 yarn add tool-bar-hoc
 ```
 
-##Basic Usage Demo
+## Basic Usage Demo
 ``` bash
 # npm install
 npm install
