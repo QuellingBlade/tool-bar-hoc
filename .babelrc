@@ -12,6 +12,7 @@
     "transform-vue-jsx",
     "transform-runtime",
     "vue-jsx-sync",
-    "jsx-v-model"
+    "jsx-v-model",
+    "lodash"
   ]
 }
