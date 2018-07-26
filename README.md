@@ -30,6 +30,7 @@ yarn add tool-bar-hoc
 <template>
 <script>
   ...
+  import { ToolBar } from 'tool-bar-hoc'
   data(){
     return {
       filters: [
@@ -87,6 +88,9 @@ yarn add tool-bar-hoc
         ]
       },
     }
+  }
+  components: {
+    ToolBar
   }
 <script>
 ```
