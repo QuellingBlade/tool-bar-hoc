@@ -28,16 +28,16 @@
       filters: [
         {
           type: 'radio',
-          prop: 'rent_type', // prop you want to filter by radio
+          prop: 'rent_type', // prop you want to filter by radio
           value: ''
         },
         {
           type: 'select',
-          prop: 'building', // prop you want to filter by select
+          prop: 'building', // prop you want to filter by select
           value: ''
         },
         {
-          type: 'search', // prop you want to filter by search
+          type: 'search', // prop you want to filter by search
           prop: 'q',
           value: ''
         },
