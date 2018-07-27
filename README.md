@@ -9,7 +9,7 @@
 <template>
     <tool-bar
       v-model="filters"
-      layout="action, radio, select, search" //Configuring layout options you need l
+      layout="action, radio, select, search" //Configuring layout options you need
       :actionOptions="actionOptions" // binding actionOptions
       :filterOptions="filterOptions" // binding filterOptions
     >
