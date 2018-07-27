@@ -1,7 +1,7 @@
 # 简介
 
 > 这是一个供 [vue-data-table](https://github.com/njleonzhang/vue-data-tables) 使用的高阶工具栏组件
-
+>
 > [English Doc](https://github.com/QuellingBlade/tool-bar-hoc)
 
 
@@ -124,6 +124,6 @@
     layout: {string} 'action, radio, select, checkbox, search, confirm' // 默认值
     // 如果layout里没有confirm的时，则内部的value变化（radio, select, checkbox, search）都会直接emit input事件，
     // 而如果layout里有confirm的时，则内部的value变化会推迟到confirm button被点击的时候
- ```
+```
 ## Others
   通过阅读源代码来尝试更多用法。
