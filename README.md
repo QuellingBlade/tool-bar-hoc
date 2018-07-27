@@ -1,16 +1,16 @@
 # Introduction
 
 > A tool-bar-hoc component for vue-data-tables
-  [中文文档](https://github.com/QuellingBlade/tool-bar-hoc/blob/master/README.md)
+  [中文文档](https://github.com/QuellingBlade/tool-bar-hoc/blob/master/README_cn.md)
 
 ## Basic Usage Demo
 ``` javascript
 <template>
     <tool-bar
       v-model="filters"
-      layout="action, radio, select, search" //Configuring layout options you need 配置需要的layout选项
-      :actionOptions="actionOptions" //绑定 actionOptions
-      :filterOptions="filterOptions" //绑定 filterOptions
+      layout="action, radio, select, search" //Configuring layout options you need l
+      :actionOptions="actionOptions" // binding actionOptions
+      :filterOptions="filterOptions" // binding filterOptions
     >
     </tool-bar>
     <data-tables-server
