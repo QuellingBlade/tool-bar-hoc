@@ -1,7 +1,7 @@
 # Introduction
 
 > A tool-bar-hoc component for vue-data-tables
-  [中文文档](https://github.com/QuellingBlade/tool-bar-hoc/blob/master/README_cn.md)
+> [中文文档](https://github.com/QuellingBlade/tool-bar-hoc/blob/master/README_cn.md)
 
 ## Basic Usage Demo
 ``` javascript
