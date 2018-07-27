@@ -11,7 +11,7 @@
     <tool-bar
       v-model="filters"
       layout="action, radio, select, search" // 配置所需的 layout 选项
-      :actionOptions="actionOptions" // 绑定 actionOptions
+      :actionOptions="actionOptions" // 绑定 actionOptions
       :filterOptions="filterOptions" // 绑定 filterOptions
     >
     </tool-bar>
