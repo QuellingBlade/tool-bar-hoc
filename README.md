@@ -1,16 +1,7 @@
-# tool-bar-hoc
+# Introduction
 
 > A tool-bar-hoc component for vue-data-tables
-
-## Install
-
-``` bash
-# npm install
-npm install tool-bar-hoc
-
-# or yarn
-yarn add tool-bar-hoc
-```
+  [中文文档](https://github.com/QuellingBlade/tool-bar-hoc/blob/master/README.md)
 
 ## Basic Usage Demo
 ``` javascript
@@ -36,16 +27,16 @@ yarn add tool-bar-hoc
       filters: [
         {
           type: 'radio',
-          prop: 'rent_type', // prop you want to filter by radio 需要通过radio筛选的表格中的prop
+          prop: 'rent_type', // prop you want to filter by radio
           value: ''
         },
         {
           type: 'select',
-          prop: 'building', // prop you want to filter by select 需要通过select筛选的表格中的prop
+          prop: 'building', // prop you want to filter by select
           value: ''
         },
         {
-          type: 'search', // prop you want to filter by search 需要通过search筛选的表格中的prop
+          type: 'search', // prop you want to filter by search
           prop: 'q',
           value: ''
         },
@@ -95,11 +86,22 @@ yarn add tool-bar-hoc
 <script>
 ```
 
-## Other Explanation
+## Custom tool-bar
+  In addition to the ToolBar component, tool-bar-hoc also provides a createToolBar function that accepts a ComponentsAndProps array as a parameter.It can implement custom component insertion。
+  For example
 ```javascript
-  This is a tool-bar component for [vue-data-table](https://github.com/njleonzhang/vue-data-tables)
+  import { createToolBar } from 'tool-bar-hoc'
+  let toolbar = createToolBar([{
+    component: component1, // custom component
+    props: {
+      layout: 'province, city, district, custom', // Defines the layout option in the component1 , custom represents the component of the slot below
+    },
+    slot: component2 // Components not included in component1 but need to be used will be inserted into component1 as slots.
+  }])
 
-  @export
+
+  The following is a detailed description of the parameters ComponentsAndProps
+
   @param {Array} ComponentsAndProps
     [
        {
@@ -108,6 +110,9 @@ yarn add tool-bar-hoc
          slot: { VueComponent } | Array<VueComponent> the default slot of the Component
        }
     ]
+
+  The following is a detailed parameters for v-model
+
   @returns a hoc component，props of value and layout needs special introduction：
     value(v-model) { Array }
      [
@@ -118,11 +123,10 @@ yarn add tool-bar-hoc
        }
      ]
     layout: {string} 'action, radio, select, checkbox, search, confirm' //default value
-      // If there is no `confirm` value, when (radio, select, checkbox, search) value changes,it will emit input directly
-      // If there is 'confirm' value, the inner value change will be delayed until the confirm button is clicked.
-      // 如果layout里没有confirm的时，则内部的value变化（radio, select, checkbox, search）都会直接emit input事件，
-      // 而如果layout里有confirm的时，则内部的value变化会推迟到confirm button被点击的时候
+
+      // If there is no `confirm` type, when (radio, select, checkbox, search) value changes, it will emit input directly
+
+      // If there is 'confirm' type, the inner value change will be delayed until the confirm button is clicked.
  ```
 ## Others
   you could try more usage by reading the source code.
-  通过阅读源代码来尝试更多用法。
