@@ -1,6 +1,6 @@
 {
   "name": "tool-bar-hoc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tool-bar-hoc component for vue-data-tables",
   "author": "zmj <zhaimj@foxmail.com>",
   "main": "dist/tool-bar-hoc.min.js",
