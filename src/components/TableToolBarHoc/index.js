@@ -59,7 +59,7 @@ export function createToolBar(ComponentsAndProps) {
         handler(val) {
           if (!isArray(val)) return
           this.customIndexs = [] // 清空customIndexs
-          this.innerValue = cloneDeep(val) // 深度clone防止子组件修改val，导致父组件的数据受到影响
+          this.innerValue = this.confirmMode ? cloneDeep(val) : val // confirmMode 时，深度 clone 防止子组件修改val，导致父组件的数据受到影响
           this.customVals = this.innerValue
             .filter((item, index) => {
               if (!item.type) {
@@ -72,11 +72,13 @@ export function createToolBar(ComponentsAndProps) {
         immediate: true
       },
       customVals: {
+        // 使用 deep watch，有2个原因：
+        // 1. 因为我们允许传入的 component 内部自己修改自己的值，但是不通知我们.
+        // 2. customVals 有是一个数组, 我们需要用 deep watch.
         handler(val) {
-          return this.customIndexs.reduce((previousValue, indexInValue, index) => {
-            previousValue[indexInValue].value = val[index]
-            return previousValue
-          }, this.innerValue)
+          this.customIndexs.forEach((indexInValue, index) => {
+            this.innerValue[indexInValue].value = val[index]
+          })
         },
         deep: true
       },
@@ -382,7 +384,6 @@ export function createToolBar(ComponentsAndProps) {
                 }}
               >
               </el-input>
-
             </el-col>
           )
         }
